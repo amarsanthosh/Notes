@@ -103,4 +103,33 @@ ex:
     fn3();
 
 
+### callback function -> {execute later} // just an concept
+    setTimeOut( () => {
+        console.log("HOOO");
+    },2000);
+
+here, the console.log is like the callback function [1st arg for settimeout] , 2000 is the [second arg]
+
+To clear/stop the timeout
+
+    var id = setTimeOut( () => {
+        console.log("HOOO");
+    },10000);
+
+    clearrTimeout(id);
+
+    
+### setintrval-> to keep the process repeatedly executing , settimeout -> only once execute
+
+## Call back hell
+    setTimeOut( () => {
+        console.log("exec: 1");
+        setTimeOut( () => {
+            console.log("exec: 2");
+            setTimeOut( () => {
+                console.log("exec: 3");
+            },1000);
+        },1000);
+    },1000);
+    
 
