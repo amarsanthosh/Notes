@@ -3,45 +3,104 @@ to avail the function decription for the user when hover on the fn name
 
 /** (put enter in vs code before the function)
 
-function add(a,b){ //we need to keep the brackets in sides not below
-    return a+b;
-}
+    function add(a,b){ //we need to keep the brackets in sides not below
+    
+        return a+b;
+    
+    }
 
  in js no datatype is specified
 
 ### in js 
 1. first class function -> when we treat a function as a normal variable  //function expression
-2. Highwe order funciton -> 
+2. Higher order funciton -> passing function as a argument and receiving function from another function
 
 ### Three types of function
 1.normal function
+
 2.function expression    
+
 3.arrow function 
 
+
 2:
-cont sub = function(a,b){
-    return a-b;
-}
+
+    const sub = function(a,b){
+    
+        return a-b;
+        
+    }
 
 3: //without using function keyword , we use arrows
-cont div = (a,b) => {
-  return a/b;
-}
+
+    const div = (a,b) => {
+    
+      return a/b;
+      
+    }
 
 ### uses of arrow function
+
 // reducing the lines of code
+
 const square = (x) => x*x;
+
 const add = (a,b) => a+b;
 
+### Higher order function
+
+const add = (a,b) => a+b;
+
+const sub = (a,b) => a-b;
+
+const mul = (a,b) => a*b;
+
+const div = (a,b) => a/b;
+
+    function perform(a,b,fn) {
+    
+        let result = fn(a+b);
+        console.log(result);
+    }
+
+perform(10,20,sub);
+    
+// This increses the readability of the code and here we are using function as a variable
 
 
+RETURNING A FUNCTION
+
+    function sample(x) {
+        if(x%2 == 0)
+            return (a) => a*10;
+        else
+            return (a) => a*100;
+    }
+
+    var fn = sample(20);
+    console.log(fn(20)); // 200
+
+    var fn = sample(15);
+    console.log(fn(15)); // 1500
+            
 
 
+### For JS we can run it in dev tool -> console
 
+## in JS function itself is a object , we can use it with (.)
+    add.name //returns the name of the function (op -> add)
 
+ex:
 
+    function fn1() {
+        console.log("calling fn1");
+    } 
 
-
+    const fn2 = fn1;
+    const fb3 = fn1;
+    fn1();
+    fn2();
+    fn3();
 
 
 
