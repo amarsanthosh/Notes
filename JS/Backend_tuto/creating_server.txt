@@ -66,3 +66,23 @@ Grouped Routes (Modular Routes)
 
 Wildcard Routes (regex Routes)
 ------------------------
+
+
+1. arithmetic routing(OP  AS SENTENCE)
+        
+ GET   -/arith/operations/all
+       -/arith/add , sub , mul , div , '
+ POST   -/area/circle , rectangle, square     
+                payload -> {radius: 12, units: "cm"}
+                payload -> {raius : }        
+        
+
+
+----------------------------------
+
+Real example of qurery string
+
+
+-pagination     localhost:3000/movies?from30&to=40
+-filtering      localhost:3000/movies?genre=fantasy&rating=3.4
+-categorization localhost:3000/movies?genre=fantasy
