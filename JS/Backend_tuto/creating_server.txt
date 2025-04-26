@@ -1,0 +1,58 @@
+to initilaize node
+npm init
+node index.js (to run the js file)
+to automate the execution once we changed the code -> nodemon
+npm i nodemon
+
+update "scripts" in package.json
+   "start": "node index.js",
+    "dev" : "nodemon index.js" 
+
+
+Steps to initilaize repo:
+"git init" 
+create a ".gitignore" fike
+add /node_modules in above file...
+
+"git rempte add origin --link---"
+"git branch -m main"
+"git status"
+"git add ."
+"git commit -m " 
+"git push -u origin"
+
+
+
+need to install dependenciies:
+1. express
+   in backend require() is preferable over import()
+   
+------------------------
+Types of Routes : 
+Static Routes
+
+Dynamic Routes (Parametrized Routes)
+
+Middleware Routes
+
+Grouped Routes (Modular Routes)
+
+Wildcard Routes (Catch-all Routes)
+
+HTTP Method-based Routes
+
+Chained Routes
+
+Error Handling Routes
+
+------------------------
+need to add loggers in our project -> while checking wit postman we dont get logs, so logger shows it
+
+npm i morgan
+
+then by using sinchan example, we implented mutiples routes inside another, multi gets.
+
+if we are using any routes aprt from home, we can implent easily by using app.use()  ; 
+
+Dont forget the module.exports in each of the route file .
+
