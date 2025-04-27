@@ -52,7 +52,6 @@ app.post : create operation
 .patch : partial update
 .all : all http methods
 
-
 ------------------------
 Types of Routes : 
 
@@ -68,7 +67,7 @@ Wildcard Routes (regex Routes)
 ------------------------
 
 
-1. arithmetic routing(OP  AS SENTENCE)
+1. arithmetic routing(OP  AS SENTENCE)   [soln on github]
         
  GET   -/arith/operations/all
        -/arith/add , sub , mul , div , '
@@ -76,7 +75,6 @@ Wildcard Routes (regex Routes)
                 payload -> {radius: 12, units: "cm"}
                 payload -> {raius : }        
         
-
 
 ----------------------------------
 
