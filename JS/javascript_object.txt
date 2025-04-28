@@ -1,0 +1,28 @@
+
+
+const obj = {
+  name: "jhon",
+  age : 12,
+  speak : function(){
+        console.log(`Hello ${this.age} years old ${this.name}`)
+  }
+}
+
+obj.city = "salem" ;//creating attributres outside initialization
+obj.walk = function(){
+  console.log(`${this.name} is walking...`);
+}
+
+obj.walk();
+obj.speak(); //Hello 12 years old jhon. 
+
+
+// when we use arrow function, the 'this' keyword is not work inside it 
+const obj2 = {
+  name : "arun",
+  walk: ()=>{
+        console.log(`${this.name} is walking....  `); //not right
+  }
+  };
+
+  obj2.walk(); //iundefined is walking
