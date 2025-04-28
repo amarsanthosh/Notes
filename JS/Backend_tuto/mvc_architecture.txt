@@ -11,11 +11,13 @@ src/
   routes/
       user_routes.js
 
+--------------------------------------------------------------------------------
+Func based 1 *(recommended) // few func are exported 
+Func based 2 *(recommended) // all func are exported
 
-user_routes.js
+**Below cases are used where, you want to group and export multiple handlers **
 
-const usersRouter = express.Router();
-
-userRouter.post('/')
-
-      
+OBJect based
+Class based 1 
+Class based 2 
+--------------------------------------------------------------------------------
