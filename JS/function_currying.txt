@@ -1,5 +1,6 @@
 Function Currying :
 ------------------
+        currying is used in javascript to break down complex function calls into smaller,more managaeble steps. 
 
 function multiply(x){
         function fn(y){
