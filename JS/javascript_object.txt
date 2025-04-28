@@ -1,5 +1,5 @@
-
-
+JS objects :
+------------
 const obj = {
   name: "jhon",
   age : 12,
@@ -25,4 +25,7 @@ const obj2 = {
   }
   };
 
-  obj2.walk(); //iundefined is walking
+  obj2.walk(); //undefined is walking
+
+[to rectify this add name = "something" above/outside the initialization]
+
