@@ -1,0 +1,6 @@
+- mongodb internally used js
+- it uses atrtibutes
+- we using mongoos library (ODM)
+
+//in github byts india , backend notes will be there , like express, mongodb, mongoos
+
