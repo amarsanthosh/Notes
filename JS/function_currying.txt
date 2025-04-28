@@ -1,0 +1,55 @@
+Function Currying :
+------------------
+
+function multiply(x){
+        function fn(y){
+                return x*y;
+        }
+        return fn;
+}
+
+const multipleOf2 = multiply(2);
+const multipleOf3 = multiply(3);
+const multipleOf4 = multiply(4);
+
+console.log(multipleOf2(5)); //10
+console.log(multipleOf2(10)); // 20
+
+
+
+//we can run js code in , dev tools->sources->new scripts
+//able to add break points
+
+function multiply(x){
+        function fn(y){
+                return x*y;
+        }
+        return fn;
+}
+
+const res = multiple(2)(3);
+console.log(res);
+
+
+//Dynamic function currying
+
+function sum(x){
+    let total = x;
+    function update(y){
+        if(y !== undefined){
+            total += y;
+            return update;
+        }
+        return total;
+    }
+    return update;
+}
+
+const res = sum(3)(3)(9)();
+
+console.log("sum => " + res);
+
+
+
+
+
