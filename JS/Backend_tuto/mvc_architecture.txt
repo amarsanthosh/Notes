@@ -1,0 +1,21 @@
+m- nodel
+v- view 
+c- controller
+
+file tree
+src/
+  views/
+    
+  controller/  (you have the controller for every routes you have)
+  
+  routes/
+      user_routes.js
+
+
+user_routes.js
+
+const usersRouter = express.Router();
+
+userRouter.post('/')
+
+      
