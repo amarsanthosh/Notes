@@ -188,7 +188,7 @@ Relations in mongo db
       one to many -> country to citizen
       many to one -> fans to actor
       many to many -> students to teachers
-------------------------------------------------------------------------------------------------------
+__________________________________________________________________________________________
 
 4. Relations in mongoose
 -------------------------
@@ -253,3 +253,16 @@ one to many :
         type : mongoose.Schema.types.ObjectId,
         ref : 'Citizens',
     }]
+
+
+_______________________________________________________________________________________________________________________
+
+  6. middleware in mongoose
+  --------------------------  
+  
+   A code or a logic executes either pre pr post of particular action related to db.
+    example : 
+        userSchema.pre("save",(next) => {
+          this.email = this.email.toLowerCase();
+          next();
+        })
