@@ -1,0 +1,255 @@
+models
+-------
+
+  - models are nothing but db schemas
+
+  topics:
+    - db connection using mongoose
+    - how to create simple model
+    - mongoose data types
+    - relations
+    - indexing
+    - mongoose middlewares
+
+mysql -> ORM
+mongoose -> is a JS library, which is a ODM(Object Document Model) for mongodb database.
+                  'npm i mongoose' cmd for install
+
+  mongodb comapass -> local connection -> three dot -> copy connecrtion string
+
+Ex code :(db.config.js) 
+-----------------------
+
+      const mongoose = require('mongoose');
+      function connectDb(){
+            mongoose.connect('mongodb://localhost:27017/ backend_tuto') //copy string
+            //the above returns a promise
+            .then(() => {
+              console.log("mongodb connected");
+            })
+            .catch((err) => {
+              console.log("something went wrong");
+            });
+      }
+      module.exports = connectDb;
+       
+
+// need to call the db.config.js in app.js 
+
+2. How to create a simple models
+---------------------------------
+    create a folder models
+    create a file, ex: users.models.js
+    //mongoose have a class called schema
+ code : 
+      const mongoose = require('mongoose');
+
+      const userSchema = new mongoose.Schema({
+        email : String,
+        password : String,
+        name : String,
+        age : Number
+      });
+
+      // mongoose models are a class (so start in cap letter)
+      const UserModel = mongoose.model('users',userSchema); 
+      //here the users string is the collection name in databse
+      module.exports = UsersModel;
+
+
+3. Mongoose data types 
+----------------------
+  the permitted schema types are
+      - String
+      - Number
+      - Date
+      - Buffer    //to store images(binaries)
+      - Boolean
+      - Mixed
+      - ObjectId
+      - Array    /// -> [String]
+      - Decimal128
+      - Map
+      - Schema
+      - UUID
+      - BigInt
+      - Double
+      - Int32
+
+  ex: 
+  const mongoose = require('mongoose');
+  const {Schema} = require('mongoose'); //for Mixed data type
+
+ const sampleSchema = new mongoose.Schema({
+   user : String,
+   age : Number,
+   DOB : Date,
+   img : Buffer,
+   isActive : Bollean,
+   notes : Schema.Types.Mixed,
+   userId : mongoose.ObjectId,
+   favourites : [String],
+   name : { //nested schema
+     firstName : String
+     lastName  : String,
+   }
+ });
+
+All schema types : 
+------------------
+  Basic 
+    -required: true
+    -default : value
+  Indexes
+    -index: true
+         * fields taht involves freq queries
+         * enables fast query execution  
+    -unique: true
+  String Schema Options
+    -uppercase : true
+    -lowercase : true
+    -trim : true
+    -enum : ['admin','user']
+    -minLength : 2
+    -maxLength : 21
+  Number Schema Options
+    -min : 12
+    -max : 123
+    
+example : 
+  username : 
+    type : String,
+    required : true
+  },
+  ph_number : {
+    type  : Number,
+    default : 0  
+  }
+
+
+Validators : 
+-----------
+
+{
+  password: {
+    type : String,
+    minLength : [10,'password should be min 10 chars']
+  }
+  skills: {
+    type : [String],
+    validate: {
+      validator: function(v){
+          return v.length >= 3;
+      },
+      message: 'min 3 skills required'
+    }  
+  }
+}
+
+# Recap of mongo db: 
+-------------------
+  Document oriented;
+  Tech terms : 
+    database -> group of collection
+    collections -> grp of documents
+    documents -> grp of data
+    data -> information in JSON
+    field -> eg: category: "hollywood", here category is field
+    role of "_id" -> in mongodb document, by default it is aded, to identify uniquely
+
+Advantages of mongo db : 
+    best of sql and Nosql
+    open source
+    flexible scheme
+    reliable
+
+Use cases of MongoDB : 
+    product data management
+    cms
+    operational intelligence
+    online application
+
+Sharding in MongoDB : 
+---------------------
+  - sharding is a type of database partitioning that separates large databases into smaller,faster,more easily managed parts.
+  - Distributing data in multiple machines.
+  - Horizontal scaling
+
+HOw MongoDB stores Data : 
+    Stores data as document.
+    it looks like JSON.
+    But it exactly BSON (Binary JSON).
+    why BSON : less space, Faster traversal.
+    improve query speed.
+  
+Relations in mongo db
+    types : 
+      one to one -> citizen to aadhar
+      one to many -> country to citizen
+      many to one -> fans to actor
+      many to many -> students to teachers
+------------------------------------------------------------------------------------------------------
+
+4. Relations in mongoose
+-------------------------
+
+  ex : citizen.model.js //Not completed
+
+  code: 
+  const mongoose = require('mongoose');
+
+  const citizenSchema = new mongoose.Schema({
+    name : {
+      firstName: {type : String, require : true},
+      lastName : {type : String, require : true}
+    }
+    DOB : Date,
+    aadharId: {
+        type : mongoose.Schema.Types.ObjectId,
+          ref: "aadhar",
+          unique : true
+    }
+  });
+
+  const CitizenModel = mongoose.model("citizen",citizenSchema);
+  module.exports = CitizenModel;
+
+
+  aadhar.model.js
+ code : 
+  const mongoose = require('mongoose');
+
+  const citizenSchema = new mongoose.Schema({
+    name : {
+      firstName: {type : String, require : true},
+      lastName : {type : String, require : true}
+    }
+    DOB : Date  
+  });
+
+  const AadharModel  = mongoose.model("aadhar",aadharSchema);
+  module.exports = AadharModel;
+
+ex2 : 
+  employeeID:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'employee',  //Assuming you have an employee model
+    required : true,  
+  }
+
+one to one : 
+
+    aadharId: {
+        type : mongoose.Schema.Types.ObjectId,
+          ref: "aadhar",
+          unique : true
+    }
+
+one to many : 
+
+    * using array of object id.
+
+    citizens : [{
+        type : mongoose.Schema.types.ObjectId,
+        ref : 'Citizens',
+    }]
