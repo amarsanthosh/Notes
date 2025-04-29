@@ -1,0 +1,6 @@
+services
+--------
+
+  - we will use service concepts, when our application becomes complex or for our modularity.
+  - If your app is simple, you can keep service logics within controllers.
+  - All business logics and db connection codes are kept inside service file.
