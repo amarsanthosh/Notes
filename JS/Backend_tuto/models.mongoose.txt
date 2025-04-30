@@ -266,3 +266,12 @@ ________________________________________________________________________________
           this.email = this.email.toLowerCase();
           next();
         })
+
+___________________________________________________________________________________________________________________________
+
+
+//add this in db.config.js
+mongoose.connect("connection string",{
+  userNewUrlParser : true; //new connection string model
+  useUnifiedTopology: true; //new topology for mongodb driver
+});
