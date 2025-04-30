@@ -26,7 +26,10 @@ View : {MVC architecture}
               app.set('view engine' , 'ejs');
               app.set('views','./views');
           - use res.render() method to render your template engine.
-
+______________________________________________________________________________________________________________
             
+Login in to mongodb atlas -> create a cluster -> compass -> paste the connection string in mongodb compass(after all process, then inser your password in the string)
+  (ip address : 0.0.0.0/0)
+  ->add new database -> role read and write
 
-
+cluster -> where our db need to store
