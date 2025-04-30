@@ -1,0 +1,24 @@
+rest api ->  a type of API that follows the design principles of REST, it allows applications to communicate with each other over the internet, 
+using standard HTTP methods like GET, POST, PUT, and DELETE 
+
+nodejs vs js -> js is a scripting language , that provides/enables dynamic content and interactivity on websites
+                node js is a run time environment , that allows the js to run outside the browser. in backend
+js : 
+----
+promise -> is an object, three states : pending,fulfilled, rejected . methods=> .then() .catch()
+
+async await -> await keyword available only inside the async, the await keywords pauses the async function until a promise is settled
+
+closures -> A closure in JavaScript is a function's ability to remember and access its surrounding state (lexical environment) even after the outer function has finished executing.
+            A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment)
+            In other words, a closure gives a function access to its outer scope. 
+virtual dom -> virtual DOM is a lightweight copy of the real DOM that allows React to manage changes more efficiently by minimizing the direct manipulation required on the real DOM. 
+              This process significantly enhances the performance of web
+
+mongoose -> Mongoose is a library that simplifies interacting with MongoDB. 
+
+mvc service handlers -> They act as intermediaries between the controllers and the models, handling complex operations, data transformations, and interactions with external resources.
+
+static files -> Static files in JavaScript refer to files that are served to the user's browser exactly as they are stored on the server. 
+
+schema & types & options ->
