@@ -1,0 +1,27 @@
+every time while fetching
+
+git fetch
+revoke/discard the changes in the side bar
+git pull
+npm i
+
+
+
+we can get the postman of avinash from the github, clone it and import it on the postman
+
+
+#JWT 
+json web token
+used to manage user session
+
+JWT has following items
+header,payload,signature. 
+
+- > JWT by default use 'HS256' algorithm for encryption 
+
+jwt usage in nodejs : 
+  to send user information as token
+  to manage session (user don't have to authenticate again and again.)
+  we can set token expiry (eg : 15m)
+
+OTP gen :
